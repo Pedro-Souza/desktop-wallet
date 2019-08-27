@@ -21,7 +21,7 @@ const { VueLoaderPlugin } = require('vue-loader')
  * that provide pure *.vue files that need compiling
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals
  */
-let whiteListedModules = ['vue', '@arkecosystem/client', 'got']
+let whiteListedModules = ['vue', '@arkecosystem/client', 'got', 'vue-property-decorator', 'vue-class-component']
 
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
@@ -34,7 +34,7 @@ let rendererConfig = {
   module: {
     rules: [
       {
-        test: /\.(js|vue)$/,
+        test: /\.(js|vue|ts)$/,
         enforce: 'pre',
         exclude: /node_modules/,
         use: {
@@ -46,8 +46,11 @@ let rendererConfig = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
       {
         test: /\.css$/,
