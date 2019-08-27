@@ -257,10 +257,10 @@ describe('Services > Synchronizer > Wallets', () => {
       action.process = jest.fn()
       action.update = jest.fn()
 
-      action.fetch.mockImplementation(addresses => {
+      action.fetch.mockImplementation(() => {
         return { walletsData, transactionsByAddress }
       })
-      action.process.mockImplementation(addresses => {
+      action.process.mockImplementation(() => {
         return walletsToUpdate
       })
     })
@@ -279,7 +279,7 @@ describe('Services > Synchronizer > Wallets', () => {
 
     describe('when there are not wallets to update', () => {
       beforeEach(() => {
-        action.process.mockImplementation(addresses => {
+        action.process.mockImplementation(() => {
           return []
         })
       })
@@ -334,10 +334,10 @@ describe('Services > Synchronizer > Wallets', () => {
         transactionsByAddress[wallet.address] = wallet
       })
 
-      action.fetchWalletsData.mockImplementation(addresses => {
+      action.fetchWalletsData.mockImplementation(() => {
         return walletsData
       })
-      action.fetchWalletsTransactions.mockImplementation(addresses => {
+      action.fetchWalletsTransactions.mockImplementation(() => {
         return transactionsByAddress
       })
     })

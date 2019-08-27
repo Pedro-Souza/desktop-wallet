@@ -274,6 +274,7 @@ class PluginManager {
 
         // Fix context of "computed" methods - also removes global computed methods
         for (const computedName of Object.keys(vmComponent.options.computed)) {
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           vmComponent.options.computed[computedName] = function () {}
         }
 

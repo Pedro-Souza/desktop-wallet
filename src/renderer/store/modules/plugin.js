@@ -144,7 +144,7 @@ export default {
   },
 
   mutations: {
-    RESET_PLUGINS (state, plugin) {
+    RESET_PLUGINS (state) {
       state.loaded = {}
       state.available = {}
     },
@@ -210,7 +210,7 @@ export default {
   },
 
   actions: {
-    async init ({ commit, dispatch }) {
+    async init ({ commit }) {
       commit('RESET_PLUGINS')
     },
 
@@ -220,7 +220,7 @@ export default {
       }
     },
 
-    async loadPluginsForProfile ({ getters, rootGetters, state }, profile) {
+    async loadPluginsForProfile ({ getters, state }, profile) {
       if (!state.enabled[profile.id]) {
         return
       }
@@ -264,7 +264,7 @@ export default {
       }
     },
 
-    setAvailable ({ commit, rootGetters }, plugin) {
+    setAvailable ({ commit }, plugin) {
       commit('SET_AVAILABLE_PLUGIN', plugin)
     },
 
@@ -279,7 +279,7 @@ export default {
       })
     },
 
-    deleteLoaded ({ commit, getters, rootGetters }, pluginId) {
+    deleteLoaded ({ commit, rootGetters }, pluginId) {
       commit('DELETE_LOADED_PLUGIN', {
         pluginId,
         profileId: rootGetters['session/profileId']

@@ -164,7 +164,7 @@ export default {
         minLength: minLength(1)
       },
       passphrase: {
-        isValid (value) {
+        isValid () {
           if (this.wallet.passphrase) {
             return true
           }
@@ -177,7 +177,7 @@ export default {
         }
       },
       walletPassword: {
-        isValid (value) {
+        isValid () {
           if (!this.wallet.passphrase) {
             return true
           }

@@ -267,7 +267,7 @@ export default {
 
   validations: {
     options: {
-      isValid (value) {
+      isValid () {
         return !!this.wallets.length
       }
     }

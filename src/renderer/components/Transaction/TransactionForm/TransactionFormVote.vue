@@ -357,7 +357,7 @@ export default {
         }
       },
       passphrase: {
-        isValid (value) {
+        isValid () {
           if (this.currentWallet.isLedger || this.currentWallet.passphrase) {
             return true
           }
@@ -369,7 +369,7 @@ export default {
         }
       },
       walletPassword: {
-        isValid (value) {
+        isValid () {
           if (this.currentWallet.isLedger || !this.currentWallet.passphrase) {
             return true
           }
@@ -386,7 +386,7 @@ export default {
         }
       },
       secondPassphrase: {
-        isValid (value) {
+        isValid () {
           if (!this.currentWallet.secondPublicKey) {
             return true
           }

@@ -9,13 +9,13 @@ export default {
 
   get latestReleaseUrl () {
     // eslint-disable-next-line no-unused-vars
-    const [_, project] = packageJson.repository.url.match(/github.com\/(.*)\.git$/)
+    const [, project] = packageJson.repository.url.match(/github.com\/(.*)\.git$/)
     return `https://github.com/${project}/releases/latest`
   },
 
   get latestReleaseApiUrl () {
     // eslint-disable-next-line no-unused-vars
-    const [_, project] = packageJson.repository.url.match(/github.com\/(.*)\.git$/)
+    const [, project] = packageJson.repository.url.match(/github.com\/(.*)\.git$/)
     return `https://api.github.com/repos/${project}/releases/latest`
   },
 
@@ -23,7 +23,7 @@ export default {
    * Fetches the latest published release
    * @return {Object} the release data
    */
-  async fetchLatestRelease (url) {
+  async fetchLatestRelease () {
     const response = await got(this.latestReleaseApiUrl, { json: true })
     return response.body
   }

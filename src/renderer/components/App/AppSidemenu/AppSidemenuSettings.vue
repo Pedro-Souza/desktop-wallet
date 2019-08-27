@@ -159,7 +159,7 @@ import { ModalConfirmation } from '@/components/Modal'
 import { MenuNavigationItem, MenuOptions, MenuOptionsItem, MenuDropdown } from '@/components/Menu'
 import { ButtonSwitch } from '@/components/Button'
 import { isEmpty, isString } from 'lodash'
-const os = require('os')
+import os from 'os'
 
 export default {
   name: 'AppSidemenuOptionsSettings',
