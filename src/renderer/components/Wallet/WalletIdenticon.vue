@@ -144,7 +144,7 @@ export default {
       for (let i = 0; i < this.shapeCount; i++) {
         this.rectangles.push(this.genShape(generator, remainingColors, 100, i, this.shapeCount))
       }
-      this.logo = this.genShape(generator, remainingColors, 100, 0, this.shapeCount)
+      this.logo = this.genShape(generator, remainingColors, 100, this.shapeCount + 1, this.shapeCount)
     },
 
     genShape (generator, remainingColors, diameter, i, total) {
